@@ -1,7 +1,7 @@
 # SQAExam
 Final Assignment for Software Quality Assurance module
 
-## Introduction
+# Introduction
 As part of a Software Quality management plan for an organisation you have been asked to implement an example software project. This will be a reference guide for best practices that the rest of the team can refer to. The project will demonstrate the following topics:
 * Scrum sprint backlog and task estimation
 * Unit testing and Test-Driven development
@@ -12,7 +12,7 @@ As part of a Software Quality management plan for an organisation you have been 
 You are going to create a software component in Java for storing information about Surveys and Responses. Each Survey is made up of multiple Questions (up to a maximum of 10). Every SurveyResponse should contain an answer to each Question in its Survey, where the answer will be an integer value between 1 and 5 (i.e. representing a Likert scale).
 ### Sprint Backlog
 Sprint backlog contains a list of tasks, and the corresponding estimation associated with each task.
-### Tasks and Estimations
+## Tasks and Estimations
 * create a new Survey – 2
 * add a question to a survey – 0.5
 * get a list of all surveys – 3
@@ -52,3 +52,17 @@ I thought these would be good to highlight as they are tasks that I actually com
 ### Velocity Metric Calculation
 Velocity is the measure of the amount of work a Team can tackle during a single Sprint and is calculated at the end of the Sprint by totalling the Points for all fully completed User Stories. The calculation of the velocity metric can be worked out by first getting all the task that were fully complete and adding together all their respective weights. I.e. Two tasks complete weighted at 1 and 2 will equal 3. This number will then be divided by the number of sprints involved in completing the tasks, for this example we say it was all done in one sprint so the velocity of the team is then said to be 3/1 which equals 3.
 This feeds into the preparation of the next sprint as we know to aim for a collection of tasks that equals no more than 3.
+
+## Unit testing and Test-Driven development
+
+Unit Testing involves testing individual units of behaviour. An individual unit of behaviour is the smallest possible unit of behaviour that can be individually tested in isolation.
+
+*Test-driven development (TDD)* is a software development process that relies on the repetition of a very short development cycle. TDD involves letting your tests drive your development. You can do that with unit tests, functional tests and acceptance tests. The most important part of TDD is the driven part, the tests will tell you what to do, what to do next, and when you are done. 
+
+The following sequence of steps is generally followed:
+* Add a test
+* Run all tests and see if the new one fails
+* Write some code
+* Run tests
+* Refactor code
+* Repeat
