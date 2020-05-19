@@ -7,7 +7,8 @@ public class Controller {
     }
 
     //Create surveyResponse for survey
-    public SurveyResponse createSurveyResponse(SurveyResponse surveyResponse){
+    public SurveyResponse createSurveyResponse(Survey survey){
+        SurveyResponse surveyResponse = new SurveyResponse(survey);
         return surveyResponse;
     }
 

@@ -24,9 +24,10 @@ public class JUnitTest {
     //Create basic surveyResponse
     @Test
     public void createSurveyResponse(){
-        SurveyResponse surveyResponse = new SurveyResponse(1);
+        questionList.add(Q1); questionList.add(Q2);
+        survey1.setQuestions(questionList);
 
-        assertEquals(surveyResponse, controller.createSurveyResponse(surveyResponse));
+        assertTrue(controller.createSurveyResponse(survey1) instanceof SurveyResponse);
     }
 
     //Create a basic question to go along with a survey

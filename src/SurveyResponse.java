@@ -2,16 +2,17 @@ import java.util.ArrayList;
 
 public class SurveyResponse {
 
-    private Survey name;
+    private Survey survey;
+    private String surveyTitle;
     private ArrayList<Question> questions = new ArrayList<>();
     private ArrayList<Integer> responses = new ArrayList<>();
 
     public SurveyResponse(){
     }
 
-    public SurveyResponse(Survey name, ArrayList<Question> questions) {
-        this.name = name;
-        this.questions = questions;
+    public SurveyResponse(Survey survey) {
+        this.surveyTitle = survey.getName();
+        this.questions = survey.getQuestions();
     }
 
     public ArrayList<Question> getQuestions() {
