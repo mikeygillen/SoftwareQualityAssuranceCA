@@ -43,7 +43,9 @@ public class Controller {
 
     //Add an answer to a surveyResponse
     public ArrayList<Integer> addAnswer(Survey survey, ArrayList<Integer> answers){
-        return answers;
+        SurveyResponse surveyResponse = new SurveyResponse(survey);
+        surveyResponse.setResponses(answers);
+        return surveyResponse.getResponses();
     }
 
     //Find all responses to survey by a survey name

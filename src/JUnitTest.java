@@ -115,7 +115,7 @@ public class JUnitTest {
         SurveyResponse surveyResponse = new SurveyResponse(survey1);
         surveyResponse.setResponses(surveyResponses);
 
-        assertEquals(surveyResponse, controller.addAnswer(survey1, surveyResponses));
+        assertEquals(surveyResponse.getResponses(), controller.addAnswer(survey1, surveyResponses));
     }
 
     //Return all SurveyResponses for specific Survey
