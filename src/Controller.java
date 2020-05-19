@@ -58,7 +58,7 @@ public class Controller {
     public ArrayList<Survey> getAllSurveys(ArrayList<Survey> surveyList){
         return surveyList;
     }
-    //Simply returns list of all surveys
+    //Finds survey by name
     public Survey getSurveyByName(ArrayList<Survey> surveyList, String surveyName){
         Survey survey = null;
         for (Survey survey1: surveyList){
@@ -67,5 +67,11 @@ public class Controller {
             }
         }
         return survey;
+    }
+
+    //Find all responses to survey by a survey name
+    public ArrayList<Integer> getResponseByName(ArrayList<Survey> surveyList, ArrayList<SurveyResponse> responseList){
+
+        return null;
     }
 }
