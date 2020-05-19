@@ -50,7 +50,6 @@ public class JUnitTest {
         Survey survey = new Survey();
     }
 
-
     //Test for empty values.
     @Test(expected = IllegalArgumentException.class)
     public void emptyQuestion(){
@@ -104,9 +103,50 @@ public class JUnitTest {
         assertEquals(null, controller.getSurveyByName(surveyList, "Survey3"));
     }
 
+    //Adding an answer to a SurveyResponse
+    @Test
+    public void addAnswer(){
+        ArrayList<Integer> surveyResponses = new ArrayList<>();
+        surveyResponses.add(1); surveyResponses.add(2);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        surveyResponse.setResponses(surveyResponses);
+
+        assertEquals(surveyResponse, controller.addAnswer(survey1, surveyResponses));
+    }
+
     //Return all SurveyResponses for specific Survey
     @Test
     public void getAllResponses(){
+        //Populate arrayLists with values
+        questionList.add(Q1);
+        questionList.add(Q2);
 
+        survey1.setQuestions(questionList);
+        survey2.setQuestions(questionList);
+
+        surveyList.add(survey1);
+        surveyList.add(survey2);
+/*
+        //Input responses for first surveys questions first
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        surveyResponse.getResponses(1); surveyResponse.addResponse(2); surveyResponse.addResponse(3);
+
+        //Inputting different responses to second surveys questions now
+        SurveyResponse surveyResponse2 = new SurveyResponse(questionList.get(1));
+        surveyResponse2.addResponse(2); surveyResponse2.addResponse(2); surveyResponse2.addResponse(2);
+
+        //Populate SurveyResponse list with the survey responses
+        responseList.add(surveyResponse); responseList.add(surveyResponse2);
+
+        //Should return responses for just second list of questions because we search second survey only
+        assertEquals(surveyResponse2.getResponses(), controller.getResponseByName(surveyList, responseList));
+    }
+
+
+ */
     }
 }

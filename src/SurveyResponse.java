@@ -30,4 +30,8 @@ public class SurveyResponse {
             }
             return responses;
         }
+
+    public void setResponses(ArrayList<Integer> responses) {
+        this.responses = responses;
+    }
 }

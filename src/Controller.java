@@ -41,6 +41,11 @@ public class Controller {
         return survey;
     }
 
+    //Add an answer to a surveyResponse
+    public ArrayList<Integer> addAnswer(Survey survey, ArrayList<Integer> answers){
+        return answers;
+    }
+
     //Find all responses to survey by a survey name
    /* public ArrayList<Integer> getResponseByName(ArrayList<SurveyResponse> responseList, String surveyName){
         for (SurveyResponse response: responseList){
