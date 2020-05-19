@@ -49,15 +49,8 @@ public class Controller {
     }
 
     //Find all responses to survey by a survey name
-   /* public ArrayList<Integer> getResponseByName(ArrayList<SurveyResponse> responseList, String surveyName){
-        for (SurveyResponse response: responseList){
-            if (response.getQuestion().){
-
-            }
-        }
+    public ArrayList<Integer> getResponseByName(ArrayList<SurveyResponse> responseList, Survey surveyName){
 
         return null;
     }
-
-    */
 }

@@ -122,31 +122,29 @@ public class JUnitTest {
     @Test
     public void getAllResponses(){
         //Populate arrayLists with values
+        ArrayList<Integer> answers = new ArrayList<>();
+        answers.add(1); answers.add(2); answers.add(3);
+
         questionList.add(Q1);
         questionList.add(Q2);
-
         survey1.setQuestions(questionList);
         survey2.setQuestions(questionList);
-
         surveyList.add(survey1);
         surveyList.add(survey2);
-/*
+
         //Input responses for first surveys questions first
         SurveyResponse surveyResponse = new SurveyResponse(survey1);
-        surveyResponse.getResponses(1); surveyResponse.addResponse(2); surveyResponse.addResponse(3);
+        surveyResponse.setResponses(answers);
 
         //Inputting different responses to second surveys questions now
-        SurveyResponse surveyResponse2 = new SurveyResponse(questionList.get(1));
+        SurveyResponse surveyResponse2 = new SurveyResponse(survey2);
         surveyResponse2.addResponse(2); surveyResponse2.addResponse(2); surveyResponse2.addResponse(2);
 
         //Populate SurveyResponse list with the survey responses
+        ArrayList<SurveyResponse> responseList = new ArrayList<>();
         responseList.add(surveyResponse); responseList.add(surveyResponse2);
 
         //Should return responses for just second list of questions because we search second survey only
-        assertEquals(surveyResponse2.getResponses(), controller.getResponseByName(surveyList, responseList));
-    }
-
-
- */
+        assertEquals(surveyResponse2.getResponses(), controller.getResponseByName(responseList, survey2));
     }
 }

@@ -23,6 +23,10 @@ public class SurveyResponse {
         this.questions = questions;
     }
 
+    public void addResponse(Integer answer) {
+        this.responses.add(answer);
+    }
+
     public ArrayList<Integer> getResponses() {
             for(Question question : this.questions) {
                 int value = question.getResponse();
