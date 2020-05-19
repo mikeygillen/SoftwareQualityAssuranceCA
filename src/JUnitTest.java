@@ -46,7 +46,7 @@ public class JUnitTest {
         response.add(1);
         SurveyResponse surveyResponse = new SurveyResponse(q1, response);
 
-        assertEquals(java.util.Optional.of(1), controller.addResponse(surveyResponse));
+        assertEquals(response, controller.addResponse(surveyResponse));
     }
 
     //Test for empty values. Hoping for false as I input empty Survey name

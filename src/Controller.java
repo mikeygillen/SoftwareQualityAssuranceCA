@@ -25,9 +25,8 @@ public class Controller {
     }
 
     //Add response to a surveyResponse
-    public Integer addResponse(SurveyResponse surveyResponse){
-
-        return 0;
+    public ArrayList<Integer> addResponse(SurveyResponse surveyResponse){
+        return surveyResponse.getResponses();
     }
 
     //Validate that survey name is not blank
