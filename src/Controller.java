@@ -49,8 +49,16 @@ public class Controller {
     }
 
     //Find all responses to survey by a survey name
-    public ArrayList<Integer> getResponseByName(ArrayList<SurveyResponse> responseList, Survey surveyName){
+    public ArrayList<SurveyResponse> getResponseByName(ArrayList<SurveyResponse> responseList, Survey survey){
+        ArrayList<SurveyResponse> responses = new ArrayList<>();
+        String name = survey.getName();
 
-        return null;
+        for (SurveyResponse answer: responseList){
+            if (answer.getSurveyTitle().equals(name)){
+                responses.add(answer);
+            }
+        }
+
+        return responses;
     }
 }

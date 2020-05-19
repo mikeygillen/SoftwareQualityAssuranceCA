@@ -23,19 +23,23 @@ public class SurveyResponse {
         this.questions = questions;
     }
 
-    public void addResponse(Integer answer) {
-        this.responses.add(answer);
+    public String getSurveyTitle() {
+        return surveyTitle;
     }
 
     public ArrayList<Integer> getResponses() {
-            for(Question question : this.questions) {
-                int value = question.getResponse();
-                responses.add(value);
-            }
             return responses;
         }
 
     public void setResponses(ArrayList<Integer> responses) {
-        this.responses = responses;
+        if (responses.size() != this.questions.size()){
+            throw new IllegalArgumentException("UNANSWERED_QUESTION" );
+        }else {
+            for(int i=0; i<questions.size();i++) {
+                int value = questions.get(i).getResponse();
+                responses.add(value);
+            }
+            this.responses = responses;
+        }
     }
 }
