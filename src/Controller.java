@@ -51,6 +51,11 @@ public class Controller {
     //Simply returns list of all surveys
     public Survey getSurveyByName(ArrayList<Survey> surveyList, String surveyName){
         Survey survey = null;
+        for (Survey survey1: surveyList){
+            if (survey1.getName().equals(surveyName)){
+                survey = survey1;
+            }
+        }
         return survey;
     }
 }

@@ -85,4 +85,18 @@ public class JUnitTest {
 
         assertEquals(survey2, controller.getSurveyByName(surveyList, "Survey2"));
     }
+    //Test to throw error if survey is not in surveyList
+    @Test
+    public void surveyNotFound(){
+        ArrayList<Survey> surveyList = new ArrayList<>();
+        ArrayList<String> questionList = new ArrayList<>();
+        questionList.add("Q1"); questionList.add("Q2");
+        Survey survey1 = new Survey("Survey1", questionList);
+        Survey survey2 = new Survey("Survey2", questionList);
+        Survey survey3 = new Survey("Survey3", questionList);
+
+        surveyList.add(survey1); surveyList.add(survey2);
+
+        assertEquals(survey3, controller.getSurveyByName(surveyList, "Survey3"));
+    }
 }
