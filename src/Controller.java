@@ -5,6 +5,10 @@ public class Controller {
     public Survey createBlankSurvey(String name){
         return new Survey(name);
     }
+    //Create surveyResponse for survey
+    public SurveyResponse createSurveyResponse(Survey survey, int response){
+        return null;
+    }
 
     //Adds one question to a survey at a time
     public Survey addQuestion(String name, String question){
