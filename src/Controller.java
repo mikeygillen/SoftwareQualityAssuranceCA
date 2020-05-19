@@ -48,4 +48,9 @@ public class Controller {
     public ArrayList<Survey> getAllSurveys(ArrayList<Survey> surveyList){
         return surveyList;
     }
+    //Simply returns list of all surveys
+    public Survey getSurveyByName(ArrayList<Survey> surveyList, String surveyName){
+        Survey survey = null;
+        return survey;
+    }
 }

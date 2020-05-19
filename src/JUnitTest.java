@@ -70,4 +70,19 @@ public class JUnitTest {
 
         assertEquals(surveyList, controller.getAllSurveys(surveyList));
     }
+
+    //Searches surveyList for specific survey by name
+    @Test
+    public void getSurveyByName(){
+        ArrayList<Survey> surveyList = new ArrayList<>();
+        ArrayList<String> questionList = new ArrayList<>();
+        questionList.add("Q1"); questionList.add("Q2");
+        Survey survey1 = new Survey("Survey1", questionList);
+        Survey survey2 = new Survey("Survey2", questionList);
+        Survey survey3 = new Survey("Survey3", questionList);
+
+        surveyList.add(survey1); surveyList.add(survey2); surveyList.add(survey3);
+
+        assertEquals(survey2, controller.getSurveyByName(surveyList, "Survey2"));
+    }
 }
