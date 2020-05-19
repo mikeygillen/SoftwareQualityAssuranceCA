@@ -24,6 +24,12 @@ public class Controller {
         return survey;
     }
 
+    //Add response to a surveyResponse
+    public Integer addResponse(SurveyResponse surveyResponse){
+
+        return 0;
+    }
+
     //Validate that survey name is not blank
     public boolean validateSurveyName(Survey survey) {
         if (survey.getName().isEmpty()) {

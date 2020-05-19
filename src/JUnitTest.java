@@ -18,10 +18,9 @@ public class JUnitTest {
     public void createSurveyResponse(){
         Question q1 = new Question("Test");
         ArrayList<Integer> response = new ArrayList<>();
-        response.add(1);
         SurveyResponse surveyResponse = new SurveyResponse(q1, response);
 
-        assertEquals(1, controller.createSurveyResponse(surveyResponse));
+        assertEquals(surveyResponse, controller.createSurveyResponse(surveyResponse));
     }
 
     //Create a basic question to go along with a survey
@@ -30,7 +29,6 @@ public class JUnitTest {
         Question question = new Question("This is a question");
         assertTrue(controller.addQuestion("Test2", question).getQuestions().contains(question));
     }
-
     //Create an Array of questions to go along with a survey
     @Test
     public void addQuestions(){
@@ -38,6 +36,17 @@ public class JUnitTest {
         questions.add(new Question("Q1"));
         questions.add(new Question("Q2"));
         assertEquals(questions, controller.addQuestions("TEST3", questions).getQuestions());
+    }
+
+    //Create surveyResponse with Answers
+    @Test
+    public void addSurveyResponses(){
+        Question q1 = new Question("Test");
+        ArrayList<Integer> response = new ArrayList<>();
+        response.add(1);
+        SurveyResponse surveyResponse = new SurveyResponse(q1, response);
+
+        assertEquals(java.util.Optional.of(1), controller.addResponse(surveyResponse));
     }
 
     //Test for empty values. Hoping for false as I input empty Survey name
