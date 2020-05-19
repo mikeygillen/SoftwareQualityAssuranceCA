@@ -30,6 +30,11 @@ public class Survey {
     }
 
     public void setQuestions(ArrayList<Question> questions) {
-        this.questions = questions;
+        if(questions.size() < 1 || questions.size() > 10) {
+            throw new IllegalArgumentException("EXCEED_LIMITS");
+        }
+        else {
+            this.questions = questions;
+        }
     }
 }

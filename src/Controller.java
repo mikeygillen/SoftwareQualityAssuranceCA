@@ -19,31 +19,6 @@ public class Controller {
         return survey;
     }
 
-    //Validate that survey name is not blank
-    public boolean validateSurveyName(Survey survey) {
-        if (survey.getName().isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-    //Validate that survey questions are not blank
-    public boolean validateBlankQuestion(Survey survey) {
-        if (survey.getQuestions().isEmpty()){
-            return false;
-        } else {
-            return true;
-        }
-    }
-    //Validate that survey questions do not exceed 10
-    public boolean validateUpperLimit(Survey survey) {
-        if (survey.getQuestions().size() > 10){
-            return false;
-        }else {
-            return true;
-        }
-    }
-
     //Simply returns list of all surveys
     public ArrayList<Survey> getAllSurveys(ArrayList<Survey> surveyList){
         return surveyList;

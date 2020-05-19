@@ -36,30 +36,29 @@ public class JUnitTest {
         assertEquals(questionList, controller.addQuestions("TEST3", questionList).getQuestions());
     }
 
-    //Test for empty values. Hoping for false as I input empty Survey name
-    @Test
+    //Test for empty values.
+    @Test(expected = IllegalArgumentException.class)
     public void emptySurvey(){
-        Survey survey = new Survey("");
-        assertEquals(false, controller.validateSurveyName(survey));
+        Survey survey = new Survey();
     }
 
 
-    //Test for empty values. Hoping for false as I input empty array of questions
-    @Test
+    //Test for empty values.
+    @Test(expected = IllegalArgumentException.class)
     public void emptyQuestion(){
+        Question test = new Question("");
+        questionList.add(test);
         Survey survey = new Survey("Test", questionList);
-        assertEquals(false, controller.validateBlankQuestion(survey));
     }
 
-    //Test for under 10 questions. Hoping to return false as I have input for 11
-    @Test
+    //Test for over 10 questions.
+    @Test(expected = IllegalArgumentException.class)
     public void upperLimit(){
         Survey survey = new Survey("Test3");
         for (int i=0; i<11;i++){
             questionList.add(new Question(String.valueOf(i)));
         }
         survey.setQuestions(questionList);
-        assertEquals(false, controller.validateUpperLimit(survey));
     }
 
     //Prepares list of surveys to be returned by controller
