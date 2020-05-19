@@ -24,46 +24,12 @@ public class Controller {
         return survey;
     }
 
-    //Add response to a surveyResponse
-   /* public ArrayList<Integer> addResponse(SurveyResponse surveyResponse){
-        return surveyResponse.getResponses();
-    }
-
-    */
-    public ArrayList<SurveyResponse> addResponse(Question surveyResponse){
-        return surveyResponse.getResponses();
-    }
-
-    //Validate that survey name is not blank
-    public boolean validateSurveyName(Survey survey) {
-        if (survey.getName().isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-    //Validate that survey questions are not blank
-    public boolean validateBlankQuestion(Survey survey) {
-        if (survey.getQuestions().isEmpty()){
-            return false;
-        } else {
-            return true;
-        }
-    }
-    //Validate that survey questions do not exceed 10
-    public boolean validateUpperLimit(Survey survey) {
-        if (survey.getQuestions().size() > 10){
-            return false;
-        }else {
-            return true;
-        }
-    }
-
     //Simply returns list of all surveys
     public ArrayList<Survey> getAllSurveys(ArrayList<Survey> surveyList){
         return surveyList;
     }
-    //Finds survey by name
+
+    //Returns a specific survey by name
     public Survey getSurveyByName(ArrayList<Survey> surveyList, String surveyName){
         Survey survey = null;
         for (Survey survey1: surveyList){
