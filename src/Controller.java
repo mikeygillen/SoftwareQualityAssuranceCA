@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Controller {
     //Creates a blank survey with just a name
-    public Survey createSurvey(String name){
+    public Survey createBlankSurvey(String name){
         return new Survey(name);
     }
 
@@ -44,9 +44,8 @@ public class Controller {
         }
     }
 
+    //Simply returns list of all surveys
     public ArrayList<Survey> getAllSurveys(ArrayList<Survey> surveyList){
-        ArrayList<Survey> allSurveys = new ArrayList<>();
-
-        return allSurveys;
+        return surveyList;
     }
 }

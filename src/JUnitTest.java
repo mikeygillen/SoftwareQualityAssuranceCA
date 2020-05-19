@@ -11,7 +11,7 @@ public class JUnitTest {
     //Create basic survey with a name
     @Test
     public void createSurvey(){
-        assertEquals("TEST", controller.createSurvey("TEST").getName());
+        assertEquals("TEST", controller.createBlankSurvey("TEST").getName());
     }
 
     //Create a basic question to go along with a survey
@@ -57,6 +57,7 @@ public class JUnitTest {
         assertEquals(false, controller.validateUpperLimit(survey));
     }
 
+    //Prepares list of surveys to be returned by controller
     @Test
     public void getAllSurveys(){
         ArrayList<Survey> surveyList = new ArrayList<>();
