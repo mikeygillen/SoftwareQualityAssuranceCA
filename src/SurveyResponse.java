@@ -7,9 +7,8 @@ public class SurveyResponse {
     public SurveyResponse(){
     }
 
-    public SurveyResponse(Question question, ArrayList<Integer> responses) {
+    public SurveyResponse(Question question) {
         this.question = question;
-        this.responses = responses;
     }
 
     public Question getQuestion() {

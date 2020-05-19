@@ -16,9 +16,7 @@ public class JUnitTest {
     //Create basic surveyResponse linked with a Survey
     @Test
     public void createSurveyResponse(){
-        Question q1 = new Question("Test");
-        ArrayList<Integer> response = new ArrayList<>();
-        SurveyResponse surveyResponse = new SurveyResponse(q1, response);
+        SurveyResponse surveyResponse = new SurveyResponse(new Question("Test"));
 
         assertEquals(surveyResponse, controller.createSurveyResponse(surveyResponse));
     }
@@ -41,12 +39,10 @@ public class JUnitTest {
     //Create surveyResponse with Answers
     @Test
     public void addSurveyResponses(){
-        Question q1 = new Question("Test");
-        ArrayList<Integer> response = new ArrayList<>();
-        response.add(1);
-        SurveyResponse surveyResponse = new SurveyResponse(q1, response);
+        SurveyResponse surveyResponse = new SurveyResponse(new Question("Test"));
+        surveyResponse.addResponse(1);
 
-        assertEquals(response, controller.addResponse(surveyResponse));
+        assertEquals(surveyResponse.getResponses(), controller.addResponse(surveyResponse));
     }
 
     //Test for empty values. Hoping for false as I input empty Survey name
@@ -121,5 +117,11 @@ public class JUnitTest {
         surveyList.add(survey1); surveyList.add(survey2);
 
         assertEquals(null, controller.getSurveyByName(surveyList, "Survey3"));
+    }
+
+    //Return all SurveyResponses for specific Survey
+    @Test
+    public void getAllResponses(){
+
     }
 }
