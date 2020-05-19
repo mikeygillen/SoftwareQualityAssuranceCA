@@ -5,6 +5,7 @@ public class Survey {
     private ArrayList<Question> questions = new ArrayList<>();
 
     public Survey(){
+        throw new IllegalArgumentException("BLANK_SURVEY" );
     }
 
     public Survey(String name) {

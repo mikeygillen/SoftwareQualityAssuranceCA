@@ -13,10 +13,10 @@ public class JUnitTest {
     public void createSurvey(){
         assertEquals("TEST", controller.createBlankSurvey("TEST").getName());
     }
-    //Create basic surveyResponse linked with a Survey
+    //Create basic surveyResponse
     @Test
     public void createSurveyResponse(){
-        SurveyResponse surveyResponse = new SurveyResponse(new Question("Test"));
+        SurveyResponse surveyResponse = new SurveyResponse(1);
 
         assertEquals(surveyResponse, controller.createSurveyResponse(surveyResponse));
     }
@@ -36,13 +36,14 @@ public class JUnitTest {
         assertEquals(questions, controller.addQuestions("TEST3", questions).getQuestions());
     }
 
-    //Create surveyResponse with Answers
+    //Create surveyResponse with responses
     @Test
     public void addSurveyResponses(){
-        SurveyResponse surveyResponse = new SurveyResponse(new Question("Test"));
-        surveyResponse.addResponse(1);
+        Question question = new Question("Test");
+        SurveyResponse surveyResponse = new SurveyResponse(1);
+        question.addResponse(surveyResponse);
 
-        assertEquals(surveyResponse.getResponses(), controller.addResponse(surveyResponse));
+        assertEquals(surveyResponse.getResponses(), controller.addResponse(question));
     }
 
     //Test for empty values. Hoping for false as I input empty Survey name
@@ -122,29 +123,6 @@ public class JUnitTest {
     //Return all SurveyResponses for specific Survey
     @Test
     public void getAllResponses(){
-        //initialize array lists to contain objects
-        ArrayList<Survey> surveyList = new ArrayList<>();
-        ArrayList<Question> questionList = new ArrayList<>();
-        ArrayList<SurveyResponse> responseList = new ArrayList<>();
 
-        //Populate arrayLists with values
-        questionList.add(new Question("Q1"));
-        questionList.add(new Question("Q2"));
-        Survey survey1 = new Survey("Survey1", questionList);
-        Survey survey2 = new Survey("Survey2", questionList);
-        surveyList.add(survey1); surveyList.add(survey2);
-
-        //Input responses for first surveys questions first
-        SurveyResponse surveyResponse = new SurveyResponse(questionList.get(0));
-        surveyResponse.addResponse(1); surveyResponse.addResponse(2); surveyResponse.addResponse(3);
-        //Inputting different responses to second surveys questions now
-        SurveyResponse surveyResponse2 = new SurveyResponse(questionList.get(1));
-        surveyResponse2.addResponse(2); surveyResponse2.addResponse(2); surveyResponse2.addResponse(2);
-
-        //Populate SurveyResponse list with the survey responses
-        responseList.add(surveyResponse); responseList.add(surveyResponse2);
-
-        //Should return responses for just second list of questions because we search second survey only
-        assertEquals(surveyResponse2.getResponses(), controller.getResponseByName(surveyList, responseList));
     }
 }

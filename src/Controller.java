@@ -25,7 +25,12 @@ public class Controller {
     }
 
     //Add response to a surveyResponse
-    public ArrayList<Integer> addResponse(SurveyResponse surveyResponse){
+   /* public ArrayList<Integer> addResponse(SurveyResponse surveyResponse){
+        return surveyResponse.getResponses();
+    }
+
+    */
+    public ArrayList<SurveyResponse> addResponse(Question surveyResponse){
         return surveyResponse.getResponses();
     }
 
@@ -70,8 +75,15 @@ public class Controller {
     }
 
     //Find all responses to survey by a survey name
-    public ArrayList<Integer> getResponseByName(ArrayList<Survey> surveyList, ArrayList<SurveyResponse> responseList){
+   /* public ArrayList<Integer> getResponseByName(ArrayList<SurveyResponse> responseList, String surveyName){
+        for (SurveyResponse response: responseList){
+            if (response.getQuestion().){
+
+            }
+        }
 
         return null;
     }
+
+    */
 }

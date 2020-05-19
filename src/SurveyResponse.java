@@ -1,32 +1,32 @@
 import java.util.ArrayList;
 
 public class SurveyResponse {
-    private Question question;
+
+    private Survey name;
+    private ArrayList<Question> questions = new ArrayList<>();
     private ArrayList<Integer> responses = new ArrayList<>();
 
     public SurveyResponse(){
     }
 
-    public SurveyResponse(Question question) {
-        this.question = question;
+    public SurveyResponse(Survey name, ArrayList<Question> questions) {
+        this.name = name;
+        this.questions = questions;
     }
 
-    public Question getQuestion() {
-        return question;
+    public ArrayList<Question> getQuestions() {
+        return questions;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setQuestions(ArrayList<Question> questions) {
+        this.questions = questions;
     }
 
-    public void addResponse(Integer response) {
-        this.responses.add(response);
-    }
     public ArrayList<Integer> getResponses() {
-        return responses;
-    }
-
-    public void setResponses(ArrayList<Integer> responses) {
-        this.responses = responses;
-    }
+            for(Question question : this.questions) {
+                int value = question.getResponse();
+                responses.add(value);
+            }
+            return responses;
+        }
 }
