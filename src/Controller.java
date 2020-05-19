@@ -6,14 +6,10 @@ public class Controller {
         return new Survey(name);
     }
 
-/*
     //Create surveyResponse for survey
     public SurveyResponse createSurveyResponse(SurveyResponse surveyResponse){
-
-        return new SurveyResponse(surveyResponse);
+        return surveyResponse;
     }
-
- */
 
     //Adds one question to a survey at a time
     public Survey addQuestion(String name, Question question){

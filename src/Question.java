@@ -1,5 +1,4 @@
 public class Question {
-
     private String question;
 
     public Question() {

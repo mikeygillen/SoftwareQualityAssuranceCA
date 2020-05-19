@@ -14,18 +14,15 @@ public class JUnitTest {
         assertEquals("TEST", controller.createBlankSurvey("TEST").getName());
     }
     //Create basic surveyResponse linked with a Survey
-    /*@Test
+    @Test
     public void createSurveyResponse(){
-        ArrayList<String> questions = new ArrayList<>();
-        ArrayList<Integer> responses = new ArrayList<>();
-        questions.add("Q1"); responses.add(1);
-        Survey survey = new Survey("Survey", questions);
-        SurveyResponse surveyResponse = new SurveyResponse(survey, responses);
+        Question q1 = new Question("Test");
+        ArrayList<Integer> response = new ArrayList<>();
+        response.add(1);
+        SurveyResponse surveyResponse = new SurveyResponse(q1, response);
 
-        assertEquals(1, controller.createSurveyResponse(surveyResponse).getResponses());
+        assertEquals(1, controller.createSurveyResponse(surveyResponse));
     }
-
-     */
 
     //Create a basic question to go along with a survey
     @Test
