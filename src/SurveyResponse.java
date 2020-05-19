@@ -2,15 +2,9 @@ import java.util.ArrayList;
 
 public class SurveyResponse {
     private Survey survey;
-    private int surveyResponse;
     private ArrayList<Integer> responses = new ArrayList<>();
 
     public SurveyResponse(){
-    }
-
-    public SurveyResponse(Survey survey, int surveyResponse) {
-        this.survey = survey;
-        this.surveyResponse = surveyResponse;
     }
 
     public SurveyResponse(Survey survey, ArrayList<Integer> responses) {
@@ -24,14 +18,6 @@ public class SurveyResponse {
 
     public void setSurvey(Survey survey) {
         this.survey = survey;
-    }
-
-    public int getSurveyResponse() {
-        return surveyResponse;
-    }
-
-    public void setSurveyResponse(int surveyResponse) {
-        this.surveyResponse = surveyResponse;
     }
 
     public ArrayList<Integer> getResponses() {

@@ -5,19 +5,24 @@ public class Controller {
     public Survey createBlankSurvey(String name){
         return new Survey(name);
     }
+
+/*
     //Create surveyResponse for survey
-    public SurveyResponse createSurveyResponse(Survey survey, int response){
-        return null;
+    public SurveyResponse createSurveyResponse(SurveyResponse surveyResponse){
+
+        return new SurveyResponse(surveyResponse);
     }
 
+ */
+
     //Adds one question to a survey at a time
-    public Survey addQuestion(String name, String question){
+    public Survey addQuestion(String name, Question question){
         Survey survey = new Survey(name);
         survey.addQuestion(question);
         return survey;
     }
     //Adds array of questions to a survey at a time
-    public Survey addQuestions(String name, ArrayList<String> questions){
+    public Survey addQuestions(String name, ArrayList<Question> questions){
         Survey survey = new Survey(name);
         survey.setQuestions(questions);
         return survey;
