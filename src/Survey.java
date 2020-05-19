@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Survey {
     private String name;
-    private ArrayList<String> questions;
+    private ArrayList<String> questions = new ArrayList<>();
 
     public Survey(){
     }
@@ -14,6 +14,10 @@ public class Survey {
     public Survey(String name, ArrayList<String> questions) {
         this.name = name;
         this.questions = questions;
+    }
+
+    public void addQuestion(String question) {
+        this.questions.add(question);
     }
 
     public String getName() {

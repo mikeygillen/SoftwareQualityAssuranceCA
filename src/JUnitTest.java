@@ -2,8 +2,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class JUnitTest {
 
@@ -18,12 +17,19 @@ public class JUnitTest {
     //Create a basic question to go along with a survey
     @Test
     public void addQuestion(){
-        ArrayList<String> questions = new ArrayList<>();
-        questions.add("Q1"); questions.add("Q2");
-        assertEquals(questions, controller.addQuestion("TEST2", questions).getQuestions());
+        String question = "This is a question";
+        assertTrue(controller.addQuestion("Test2", question).getQuestions().contains(question));
     }
 
-    //Test for empty values. Hoping for false as i input empty String for name
+    //Create an Array of questions to go along with a survey
+    @Test
+    public void addQuestions(){
+        ArrayList<String> questions = new ArrayList<>();
+        questions.add("Q1"); questions.add("Q2");
+        assertEquals(questions, controller.addQuestions("TEST3", questions).getQuestions());
+    }
+
+    //Test for empty values. Hoping for false as I input empty Survey name
     @Test
     public void emptySurvey(){
         Survey survey = new Survey("");
@@ -31,7 +37,7 @@ public class JUnitTest {
     }
 
 
-    //Test for empty values. Hoping for false as i input empty array of questions
+    //Test for empty values. Hoping for false as I input empty array of questions
     @Test
     public void emptyQuestion(){
         ArrayList<String> questions = new ArrayList<>();
@@ -39,7 +45,7 @@ public class JUnitTest {
         assertEquals(false, controller.validateBlankQuestion(survey));
     }
 
-    //Test for under 10 questions. Hoping to return false as i will input over 11
+    //Test for under 10 questions. Hoping to return false as I have input for 11
     @Test
     public void upperLimit(){
         ArrayList<String> questions = new ArrayList<>();
@@ -49,5 +55,18 @@ public class JUnitTest {
         }
         survey.setQuestions(questions);
         assertEquals(false, controller.validateUpperLimit(survey));
+    }
+
+    @Test
+    public void getAllSurveys(){
+        ArrayList<Survey> surveyList = new ArrayList<>();
+        ArrayList<String> questionList = new ArrayList<>();
+        questionList.add("Q1"); questionList.add("Q2");
+        Survey survey1 = new Survey("Survey1", questionList);
+        Survey survey2 = new Survey("Survey2", questionList);
+
+        surveyList.add(survey1); surveyList.add(survey2);
+
+        assertEquals(surveyList, controller.getAllSurveys(surveyList));
     }
 }
