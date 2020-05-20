@@ -1,3 +1,5 @@
+import org.junit.internal.ArrayComparisonFailure;
+
 import java.util.ArrayList;
 
 public class Controller {
@@ -58,7 +60,66 @@ public class Controller {
                 response = answer;
             }
         }
-
         return response;
+    }
+
+    //Get average response of a survey
+    public double getAverageSurvey(SurveyResponse surveyResponse){
+        int questions = surveyResponse.getQuestions().size();
+        double sum = getSum(surveyResponse.getResponses());
+        double average = sum/questions;
+        return average;
+    }
+
+    //Get Standard deviation of a survey
+    public double getStandardDeviation(SurveyResponse surveyResponse){
+        return calculateSD(surveyResponse.getResponses());
+    }
+
+    //Get Max of a survey
+    public double getMaxSurvey(SurveyResponse surveyResponse){
+        int max = 0;
+        for (Integer integer: surveyResponse.getResponses()){
+            if (max < integer){
+                max = integer;
+            }
+        }
+        return max;
+    }
+
+    //Get Min of a survey
+    public double getMinSurvey(SurveyResponse surveyResponse){
+        int min = 1000;
+        for (Integer integer: surveyResponse.getResponses()){
+            if (min > integer){
+                min = integer;
+            }
+        }
+        return min;
+    }
+
+    public double getSum(ArrayList<Integer> dataSet){
+        int sum = 0;
+        for (int i : dataSet) {
+            sum += i;
+        }
+        return sum;
+    }
+    public double calculateSD(ArrayList<Integer> dataSet)
+    {
+        double sum = getSum(dataSet), standardDeviation = 0.0;
+        int length = dataSet.size();
+
+        for(double num : dataSet) {
+            sum += num;
+        }
+
+        double mean = sum/length;
+
+        for(double num: dataSet) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+
+        return Math.sqrt(standardDeviation/length);
     }
 }

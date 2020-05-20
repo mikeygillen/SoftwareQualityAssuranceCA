@@ -31,22 +31,28 @@ public class SurveyResponse {
        // if (responses.size() == this.questions.size()){
       //      throw new IllegalArgumentException("UNANSWERED_QUESTION" );
       //  }else {
-            ArrayList<Integer> responses = new ArrayList<>();
+        /*    ArrayList<Integer> responses = new ArrayList<>();
             for (Question question : this.questions) {
             int answer = question.getResponse();
             responses.add(answer);
         }
+         */
         return responses;
      //   }
+    }
+
+    public void addResponses(Integer response) {
+            this.responses.add(response);
     }
 
     public void setResponses(ArrayList<Integer> responses) {
         //if (responses.size() != this.questions.size()){
           //  throw new IllegalArgumentException("UNANSWERED_QUESTION" );
        // }else {
+        ArrayList<Integer> answers = new ArrayList<>();
             for(int i=0; i<questions.size();i++) {
-                int value = questions.get(i).getResponse();
-                responses.add(value);
+                int value = responses.get(i);
+                answers.add(value);
             }
             this.responses = responses;
         //}
