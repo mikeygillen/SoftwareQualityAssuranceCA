@@ -1,5 +1,3 @@
-import org.junit.internal.ArrayComparisonFailure;
-
 import java.util.ArrayList;
 
 public class Controller {
