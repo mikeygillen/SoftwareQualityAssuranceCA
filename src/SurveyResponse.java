@@ -6,9 +6,6 @@ public class SurveyResponse {
     private ArrayList<Question> questions = new ArrayList<>();
     private ArrayList<Integer> responses = new ArrayList<>();
 
-    public SurveyResponse(){
-    }
-
     public SurveyResponse(Survey survey) {
         this.surveyTitle = survey.getName();
         this.questions = survey.getQuestions();
