@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Survey {
-    private String name;
+    private final String name;
     private ArrayList<Question> questions = new ArrayList<>();
 
     public Survey(){
