@@ -234,6 +234,111 @@ public class JUnitTest {
 
         //Test to get maxValue
         assertEquals(1 , controller.getMinSurvey(surveyResponse), 1e-3);
+    }
 
+    //Return the average of the responses for a Survey
+    @Test
+    public void getAverageSpecificSurvey(){
+        //Populate arrayLists with values
+        ArrayList<Integer> answers  = new ArrayList<>();
+        answers.add(1); answers.add(2);
+        ArrayList<Integer> answers2  = new ArrayList<>();
+        answers2.add(4); answers2.add(4);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+
+        //Input responses for surveys question answers
+        ArrayList<SurveyResponse> surveyResponses = new ArrayList<>();
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        SurveyResponse surveyResponse1 = new SurveyResponse(survey1);
+        surveyResponse.setQuestions(questionList);
+        surveyResponse1.setQuestions(questionList);
+        surveyResponse.setResponses(answers);
+        surveyResponse1.setResponses(answers2);
+
+        //Test to get Average
+        assertEquals(1, controller.getAverageSpecificSurvey(surveyResponses, Q1) ,1e-3);
+    }
+
+    //Standard Deviation for Survey
+    @Test
+    public void getSpecificStandardDeviation(){
+        //Populate arrayLists with values
+        ArrayList<Integer> answers  = new ArrayList<>();
+        answers.add(1); answers.add(2);
+        ArrayList<Integer> answers2  = new ArrayList<>();
+        answers2.add(4); answers2.add(4);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+
+        //Input responses for surveys question answers
+        ArrayList<SurveyResponse> surveyResponses = new ArrayList<>();
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        SurveyResponse surveyResponse1 = new SurveyResponse(survey1);
+        surveyResponse.setQuestions(questionList);
+        surveyResponse1.setQuestions(questionList);
+        surveyResponse.setResponses(answers);
+        surveyResponse1.setResponses(answers2);
+
+
+        //I hardcoded in this value as I know it to be the correct standard deviation for the above numbers used.
+        assertEquals(0, controller.getSpecificStandardDeviation(surveyResponses, Q1)  ,1e-3);
+    }
+
+    //Get the max survey response value
+    @Test
+    public void getSpecificMax(){
+        //Populate arrayLists with values
+        ArrayList<Integer> answers  = new ArrayList<>();
+        answers.add(1); answers.add(2);
+        ArrayList<Integer> answers2  = new ArrayList<>();
+        answers2.add(4); answers2.add(4);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+
+        //Input responses for surveys question answers
+        ArrayList<SurveyResponse> surveyResponses = new ArrayList<>();
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        SurveyResponse surveyResponse1 = new SurveyResponse(survey1);
+        surveyResponse.setQuestions(questionList);
+        surveyResponse1.setQuestions(questionList);
+        surveyResponse.setResponses(answers);
+        surveyResponse1.setResponses(answers2);
+
+        //Test to get maxValue
+        assertEquals(0 , controller.getSpecificMax(surveyResponses, Q1), 1e-3);
+
+    }
+
+    //Get the min survey response value
+    @Test
+    public void getSpecificMin(){
+        //Populate arrayLists with values
+        ArrayList<Integer> answers  = new ArrayList<>();
+        answers.add(1); answers.add(2);
+        ArrayList<Integer> answers2  = new ArrayList<>();
+        answers2.add(4); answers2.add(4);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+
+        //Input responses for surveys question answers
+        ArrayList<SurveyResponse> surveyResponses = new ArrayList<>();
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        SurveyResponse surveyResponse1 = new SurveyResponse(survey1);
+        surveyResponse.setQuestions(questionList);
+        surveyResponse1.setQuestions(questionList);
+        surveyResponse.setResponses(answers);
+        surveyResponse1.setResponses(answers2);
+
+        //Test to get maxValue
+        assertEquals(0 , controller.getSpecificMin(surveyResponses, Q1), 1e-3);
     }
 }
