@@ -21,6 +21,14 @@ public class JUnitTest {
     public void createSurvey(){
         assertEquals("TEST", controller.createBlankSurvey("TEST").getName());
     }
+    //Create basic surveyResponse
+    @Test
+    public void createSurveyResponse(){
+        questionList.add(Q1); questionList.add(Q2);
+        survey1.setQuestions(questionList);
+
+        assertTrue(controller.createSurveyResponse(survey1) instanceof SurveyResponse);
+    }
 
     //Create a basic question to go along with a survey
     @Test
@@ -41,7 +49,6 @@ public class JUnitTest {
     public void emptySurvey(){
         Survey survey = new Survey();
     }
-
 
     //Test for empty values.
     @Test(expected = IllegalArgumentException.class)
@@ -94,5 +101,56 @@ public class JUnitTest {
         surveyList.add(survey1); surveyList.add(survey2);
 
         assertEquals(null, controller.getSurveyByName(surveyList, "Survey3"));
+    }
+
+    //Adding an answer to a SurveyResponse
+    @Test
+    public void addAnswer(){
+        ArrayList<Integer> surveyResponses = new ArrayList<>();
+        questionList.clear();
+        surveyResponses.add(1); surveyResponses.add(2);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        surveyResponse.setResponses(surveyResponses);
+
+        assertEquals(surveyResponse.getResponses(), controller.addAnswer(survey1, surveyResponses));
+    }
+
+    //Return all SurveyResponses for specific Survey
+    @Test
+    public void getAllResponses(){
+        //Populate arrayLists with values
+        ArrayList<Integer> answers  = new ArrayList<>();
+        answers.add(1); answers.add(2);
+        ArrayList<Integer> answers2  = new ArrayList<>();
+        answers2.add(4); answers2.add(4);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+        survey2.setQuestions(questionList);
+        surveyList.add(survey1);
+        surveyList.add(survey2);
+
+        //Input responses for first surveys questions first
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        surveyResponse.setResponses(answers);
+
+        //Inputting different responses to second surveys questions now
+        SurveyResponse surveyResponse2 = new SurveyResponse(survey2);
+        surveyResponse2.setResponses(answers2);
+
+        //Populate SurveyResponse list with the survey responses
+        ArrayList<SurveyResponse> responseList = new ArrayList<>();
+        responseList.add(surveyResponse); responseList.add(surveyResponse2);
+
+        //Create the Survey and SurveyResponses on the controller side
+
+
+        //Should return responses for just second list of questions because we search first survey only
+        assertEquals(surveyResponse, controller.getResponseByName(responseList, survey1));
     }
 }
