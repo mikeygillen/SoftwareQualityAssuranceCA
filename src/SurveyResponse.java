@@ -41,6 +41,10 @@ public class SurveyResponse {
      //   }
     }
 
+    public void addResponses(Integer response) {
+            this.responses.add(response);
+    }
+
     public void setResponses(ArrayList<Integer> responses) {
         //if (responses.size() != this.questions.size()){
           //  throw new IllegalArgumentException("UNANSWERED_QUESTION" );

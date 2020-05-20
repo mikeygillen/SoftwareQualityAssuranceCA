@@ -1,3 +1,5 @@
+import org.junit.internal.ArrayComparisonFailure;
+
 import java.util.ArrayList;
 
 public class Controller {
@@ -64,13 +66,38 @@ public class Controller {
     //Get average response of a survey
     public double getAverageSurvey(SurveyResponse surveyResponse){
         int questions = surveyResponse.getQuestions().size();
-        ArrayList<Integer> my_array = surveyResponse.getResponses();
+        double sum = getSum(surveyResponse.getResponses());
+        double average = sum/questions;
+        return average;
+    }
+
+    //Get Standard deviation of a survey
+    public double getStandardDeviation(SurveyResponse surveyResponse){
+        return calculateSD(surveyResponse.getResponses());
+    }
+
+    public double getSum(ArrayList<Integer> dataSet){
         int sum = 0;
-        for (int i : my_array) {
+        for (int i : dataSet) {
             sum += i;
         }
-        double average = sum/questions;
+        return sum;
+    }
+    public double calculateSD(ArrayList<Integer> dataSet)
+    {
+        double sum = getSum(dataSet), standardDeviation = 0.0;
+        int length = dataSet.size();
 
-        return average;
+        for(double num : dataSet) {
+            sum += num;
+        }
+
+        double mean = sum/length;
+
+        for(double num: dataSet) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+
+        return Math.sqrt(standardDeviation/length);
     }
 }

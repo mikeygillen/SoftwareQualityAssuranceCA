@@ -171,7 +171,27 @@ public class JUnitTest {
         surveyResponse.setResponses(answers2);
 
         //Test to get Average
-        assertEquals(4, controller.getAverageSurvey(surveyResponse) ,1e-15);
+        assertEquals(4, controller.getAverageSurvey(surveyResponse) ,1e-3);
+    }
 
+    //Standard Deviation for Survey
+    @Test
+    public void getStandardDeviation(){
+        //Populate arrayLists with values
+        ArrayList<Integer> answers  = new ArrayList<>();
+        answers.add(1); answers.add(2);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+
+        //Input responses for surveys question answers
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        surveyResponse.setQuestions(questionList);
+        surveyResponse.setResponses(answers);
+        surveyResponse.addResponses(2); surveyResponse.addResponses(2); surveyResponse.addResponses(3);
+
+        //I hardcoded in this value as I know it to be the correct standard deviation for the above numbers used.
+        assertEquals(2.0976176963403033 , controller.getStandardDeviation(surveyResponse)  ,1e-3);
     }
 }
