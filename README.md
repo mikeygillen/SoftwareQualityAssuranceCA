@@ -94,3 +94,37 @@ All features / new functions / major refactoring’s are done in here in feature
 When enough features have accumulated or the next release time frame comes near, a new release branch is branched off develop. It is solely dedicated to testing/bug fixing and any clean-up necessary.
 #### *Hotfix* 
 If a major problem is found after release, a quick fix can be developed in a hotfix branch, that is branched off the master. This is the only branch that should ever branch off of master. I have all my documentation branched from the master but as I mentioned before this is because they are only text files.
+
+## Review Check List
+Preforming code reviews can help ensure code is up to a high standard by giving a fresh set of eyes the chance to identify bugs and simple coding errors before your product gets to the next step. Just simply having someone reviewing your code and identifying possible errors is a great way to minimise mistakes and is good coding practice. As this is an individual assignment I will have to create and review my own code through a code review checklist.
+Below is the checklist I followed when preforming code reviews on my own code.
+
+#### 1. *Understandable*
+Am I able to understand the code easily?
+    
+#### 2. *Coding Standards / Guidelines*
+Is the code written following the coding standards/guidelines?
+    
+#### 3. *Duplicated Code*
+Code duplication should be checked, if there is repeat code more than twice you should consisder making a method for this task.
+
+#### 4. *Unit test / Debug*
+Can I unit test / debug the code easily to find the root cause of any issues?
+
+#### 5. *Too Big?*
+Is this function or class too big? If yes, is the function or class having too many responsibilities?
+
+#### 6. *Match Requirement*
+Does the code provided match the functional requirements? This may seem like common sense but it is easy to get lost while coding and is important to check back to base every now and again to see if you are still on the right path.
+
+#### 7. *Document all code review comments*
+Documenting will help software developers to cross check the highlighted issues and avoid making similar mistakes in future.
+
+#### 8. *Always be patient and relook if required*
+This is especially true for me as I am preforming code reviews on code I have just written, and it will be very easy to overlook issues, so it is important to take my time and think critically.
+
+#### Implementation
+I will preform code reviews when I have created my pull requests. Making sure to check off each of the above topics as I do so.
+The code review process should always be pursued in a constructive way by all stakeholders to gain maximum benefit.
+The code review process not only improves the software quality but also helps software developers to enhance their skills continuously. This is why many organizations/project managers must ensure that code reviews are an integral part of software development lifecycle.
+
