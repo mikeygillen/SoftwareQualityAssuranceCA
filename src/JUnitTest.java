@@ -147,10 +147,31 @@ public class JUnitTest {
         ArrayList<SurveyResponse> responseList = new ArrayList<>();
         responseList.add(surveyResponse); responseList.add(surveyResponse2);
 
-        //Create the Survey and SurveyResponses on the controller side
-
-
         //Should return responses for just second list of questions because we search first survey only
         assertEquals(surveyResponse, controller.getResponseByName(responseList, survey1));
+    }
+
+    //Return the average of the responses for a Survey
+    @Test
+    public void getAverageSurvey(){
+        //Populate arrayLists with values
+        ArrayList<Integer> answers  = new ArrayList<>();
+        answers.add(1); answers.add(2);
+        ArrayList<Integer> answers2  = new ArrayList<>();
+        answers2.add(4); answers2.add(4);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+
+        //Input responses for surveys question answers
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        surveyResponse.setQuestions(questionList);
+        surveyResponse.setResponses(answers);
+        surveyResponse.setResponses(answers2);
+
+        //Test to get Average
+        assertEquals(4, controller.getAverageSurvey(surveyResponse) ,1e-15);
+
     }
 }

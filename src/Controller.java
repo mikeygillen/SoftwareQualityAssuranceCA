@@ -58,7 +58,19 @@ public class Controller {
                 response = answer;
             }
         }
-
         return response;
+    }
+
+    //Get average response of a survey
+    public double getAverageSurvey(SurveyResponse surveyResponse){
+        int questions = surveyResponse.getQuestions().size();
+        ArrayList<Integer> my_array = surveyResponse.getResponses();
+        int sum = 0;
+        for (int i : my_array) {
+            sum += i;
+        }
+        double average = sum/questions;
+
+        return average;
     }
 }
