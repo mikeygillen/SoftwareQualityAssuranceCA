@@ -28,18 +28,27 @@ public class SurveyResponse {
     }
 
     public ArrayList<Integer> getResponses() {
-            return responses;
+       // if (responses.size() == this.questions.size()){
+      //      throw new IllegalArgumentException("UNANSWERED_QUESTION" );
+      //  }else {
+            ArrayList<Integer> responses = new ArrayList<>();
+            for (Question question : this.questions) {
+            int answer = question.getResponse();
+            responses.add(answer);
         }
+        return responses;
+     //   }
+    }
 
     public void setResponses(ArrayList<Integer> responses) {
-        if (responses.size() != this.questions.size()){
-            throw new IllegalArgumentException("UNANSWERED_QUESTION" );
-        }else {
+        //if (responses.size() != this.questions.size()){
+          //  throw new IllegalArgumentException("UNANSWERED_QUESTION" );
+       // }else {
             for(int i=0; i<questions.size();i++) {
                 int value = questions.get(i).getResponse();
                 responses.add(value);
             }
             this.responses = responses;
-        }
+        //}
     }
 }

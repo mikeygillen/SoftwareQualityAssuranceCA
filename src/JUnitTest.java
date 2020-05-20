@@ -107,6 +107,7 @@ public class JUnitTest {
     @Test
     public void addAnswer(){
         ArrayList<Integer> surveyResponses = new ArrayList<>();
+        questionList.clear();
         surveyResponses.add(1); surveyResponses.add(2);
 
         questionList.add(Q1);
@@ -122,9 +123,9 @@ public class JUnitTest {
     @Test
     public void getAllResponses(){
         //Populate arrayLists with values
-        ArrayList<Integer> answers = new ArrayList<>();
+        ArrayList<Integer> answers  = new ArrayList<>();
         answers.add(1); answers.add(2);
-        ArrayList<Integer> answers2 = new ArrayList<>();
+        ArrayList<Integer> answers2  = new ArrayList<>();
         answers2.add(4); answers2.add(4);
 
         questionList.add(Q1);
@@ -150,6 +151,6 @@ public class JUnitTest {
 
 
         //Should return responses for just second list of questions because we search first survey only
-        assertEquals(surveyResponse.getResponses(), controller.getResponseByName(responseList, survey1));
+        assertEquals(surveyResponse, controller.getResponseByName(responseList, survey1));
     }
 }
