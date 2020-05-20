@@ -76,6 +76,17 @@ public class Controller {
         return calculateSD(surveyResponse.getResponses());
     }
 
+    //Get Max of a survey
+    public double getMaxSurvey(SurveyResponse surveyResponse){
+        int max = 0;
+        for (Integer integer: surveyResponse.getResponses()){
+            if (max < integer){
+                max = integer;
+            }
+        }
+        return max;
+    }
+
     public double getSum(ArrayList<Integer> dataSet){
         int sum = 0;
         for (int i : dataSet) {
