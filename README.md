@@ -9,7 +9,7 @@ As part of a Software Quality management plan for an organisation you have been 
 * Team version-control
 * Code-review checklist
 ### Description
-You are going to create a software component in Java for storing information about Surveys and Responses. Each Survey is made up of multiple Questions (up to a maximum of 10). Every SurveyResponse should contain an answer to each Question in its Survey, where the answer will be an integer value between 1 and 5 (i.e. representing a Likert scale).
+You are going to create a software component in Java for storing information about Surveys and Responses. Each Survey is made up of multiple Question (up to a maximum of 10). Every SurveyResponse should contain an answer to each Question in its Survey, where the answer will be an integer value between 1 and 5 (i.e. representing a Likert scale).
 ### Sprint Backlog
 Sprint backlog contains a list of tasks, and the corresponding estimation associated with each task.
 ## Tasks and Estimations
