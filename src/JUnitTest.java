@@ -215,4 +215,25 @@ public class JUnitTest {
         assertEquals(2 , controller.getMaxSurvey(surveyResponse), 1e-3);
 
     }
+
+    //Get the min survey response value
+    @Test
+    public void getMin(){
+        //Populate arrayLists with values
+        ArrayList<Integer> answers  = new ArrayList<>();
+        answers.add(1); answers.add(2);
+
+        questionList.add(Q1);
+        questionList.add(Q2);
+        survey1.setQuestions(questionList);
+
+        //Input responses for surveys question answers
+        SurveyResponse surveyResponse = new SurveyResponse(survey1);
+        surveyResponse.setQuestions(questionList);
+        surveyResponse.setResponses(answers);
+
+        //Test to get maxValue
+        assertEquals(1 , controller.getMinSurvey(surveyResponse), 1e-3);
+
+    }
 }

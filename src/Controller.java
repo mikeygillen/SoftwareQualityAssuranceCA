@@ -87,6 +87,17 @@ public class Controller {
         return max;
     }
 
+    //Get Min of a survey
+    public double getMinSurvey(SurveyResponse surveyResponse){
+        int min = 1000;
+        for (Integer integer: surveyResponse.getResponses()){
+            if (min > integer){
+                min = integer;
+            }
+        }
+        return min;
+    }
+
     public double getSum(ArrayList<Integer> dataSet){
         int sum = 0;
         for (int i : dataSet) {
