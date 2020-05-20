@@ -78,7 +78,13 @@ Select whether you want to append the results of multiple runs and click OK.
 
 [More info here...](https://www.jetbrains.com/help/idea/running-test-with-coverage.html)
 
-![Will replace with my own when I make it](https://resources.jetbrains.com/help/img/idea/2020.1/coverage-in-project-tw.png)
+#### Make sure you have created the necessary run/debug configuration for your tests.
+![SetConfiguration](src/Images/SetConfiguration.png)
+#### Select the correct configuration in the list on the toolbar and click the Run with Coverage button, or select Run | Run ... with Coverage from the main menu.
+![Location](src/Images/Location.png)
+#### The report shows the percentage of the code that has been covered by the tests. You can see the coverage result for classes, methods, and lines.
+![Breakdown](src/Images/Breakdown.png)
+
 ## Team Version Control
 Branching, in version control and software configuration management, is the duplication of an object under version control so that modifications can occur in parallel along multiple branches. These are all the branches that were created for my project and how they fit in GitFlow.
 #### *Master*
